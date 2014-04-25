@@ -3,7 +3,9 @@ $(function() {
 
 	//初期変数
 	class_array=[];
-	root_path = window.location.pathname;
+	var path_name = window.location.pathname;
+	var search_name = location.search;
+	root_path = path_name + search_name;
 	get_storage = JSON.parse(localStorage.getItem(root_path));
 	Obj = new Object();
 
@@ -23,7 +25,7 @@ $(function() {
 					if(get_key in get_storage[form_name]) var val_data = get_storage[form_name][get_key];
 					else var val_data ="";
 
-					if(type == 'text' || type == 'select-one') form_data[j].value= val_data;
+					if(type == 'text' || type == 'select-one' || type=='textarea') form_data[j].value= val_data;
 					else if(type == 'checkbox'){
 						get_key = get_key+"_"+form_data[j].value;
 						val_data = get_storage[form_name][get_key];
@@ -50,6 +52,11 @@ $(function() {
 	$("[type='text']").keyup(function(e){
 		storage_save($(this));
 	});
+
+	$("textarea").keyup(function(e){
+		storage_save($(this));
+	});
+
 	$("[type='checkbox']").click(function(e){
 		storage_save($(this));
 	});
@@ -72,7 +79,7 @@ $(function() {
 				var val_data = get_storage[form_name][get_key];
 				Obj[form_name]={};
 				Obj[form_name][get_key] ="";
-				if(type == 'text' || type == 'select-one') form_data[j].value= "";
+				if(type == 'text' || type == 'select-one' || type=='textarea') form_data[j].value= "";
 				else if(type == 'checkbox' || type == 'radio') form_data[j]['checked'] = false;
 			}
 			localStorage.setItem(root_path,JSON.stringify(Obj));
