@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="shift-jis" />
+    	<title>localstorage</title>
+    	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    	<script type="text/javascript">
+        	google.load("jquery", "1");
+   	</script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="nvform.js"></script>
+</head>
+<body>
+<h1>入力データブラウザ側自動保存</h1>
+<form class="tage1"  name ="form01" action="nv_form.php" method="post" id="form_edit">
+フリーテキスト:<input type="text" id="text" name="t01"/></br>
+フリーテキスト2:<input type="text" id="text02" name="t02"/></br>
+チェック1:<input type="checkbox" id="check" name="checkbox[]" value="0" />
+チェック2:<input type="checkbox" id="check02" name="checkbox[]" value="1"/></br>
+ラジオ1:<input type="radio" id="radio01" name="radio" value="1番目"/>
+ラジオ2:<input type="radio" id="radio02" name="radio"value="2番目" /></br>
+曜日セレクト:<select class="ml5 mb15" id ="select" name="s01" style="width:215px;">
+<option value=""></option>
+<option value="月">月</option>
+<option value="火">火</option>
+<option value="水">水</option>
+<option value="木">木</option>
+<option value="金">金</option>
+<option value="土">土</option>
+<option value="日">日</option>
+</select></br>
+陰暦セレクト:<select class="ml5 mb15" name="select02" style="width:215px;">
+<option value=""></option>
+<option value="睦月">睦月</option>
+<option value="如月">如月</option>
+<option value="弥生">弥生</option>
+<option value="卯月">卯月</option>
+<option value="皐月">皐月</option>
+<option value="水無月">水無月</option>
+<option value="文月">文月</option>
+<option value="葉月">葉月</option>
+<option value="長月">長月</option>
+<option value="神無月">神無月</option>
+<option value="下月">下月</option>
+<option value="師走">師走</option>
+</select></br>
+<input type="submit" name="form01" value="送信">
+</form>
+
+<form class="tage1"  name ="form02" action="nv_form.php" method="post" id="form_edit">
+フリーテキスト3:<input type="text" id="text" name="t01"/></br>
+フリーテキスト4:<input type="text" id="text02" name="t02"/></br>
+チェック3:<input type="checkbox" id="check" name="checkbox[]" value="0" />
+チェック4:<input type="checkbox" id="check02" name="checkbox[]" value="1"/></br>
+ラジオ3:<input type="radio" id="radio01" name="radio" value="1番目"/>
+ラジオ4:<input type="radio" id="radio02" name="radio"value="2番目" /></br>
+二十四節気セレクト1:<select class="ml5 mb15" id ="select" name="s01" style="width:215px;">
+<option value=""></option>
+<option value="立春">立春</option>
+<option value="雨水">雨水</option>
+<option value="啓蟄">啓蟄</option>
+<option value="春分">春分</option>
+<option value="清明">清明</option>
+<option value="穀雨">穀雨</option>
+<option value="立夏">立夏</option>
+<option value="小満">小満</option>
+<option value="芒種">芒種</option>
+<option value="夏至">夏至</option>
+<option value="小暑">小暑</option>
+<option value="大暑">大暑</option>
+</select></br>
+二十四節気セレクト2:<select class="ml5 mb15" name="select02" style="width:215px;">
+<option value=""></option>
+<option value="立秋">立秋</option>
+<option value="処暑">処暑</option>
+<option value="白露">白露</option>
+<option value="秋分">秋分</option>
+<option value="寒露">寒露</option>
+<option value="霜降">霜降</option>
+<option value="立冬">立冬</option>
+<option value="小雪">小雪</option>
+<option value="大雪">大雪</option>
+<option value="冬至">冬至</option>
+<option value="小寒">小寒</option>
+<option value="大寒">大寒</option>
+</select></br>
+<input type="submit" name="form02" value="送信">
+</form>
+
+<p>
+フリーズ、強制シャットダウン等入力中に何らかの原因でページから離れてしまった場合に
+使用します。</br>
+今回作成したnvform.jsのlocstorageはデータをブラウザに保存することでブラウザが閉じられても保存されたままになり、
+結果上記の問題を解決出来ます。</br>
+使用する際にはnvform.jsを読み込ませるだけですが、各inputおよびformにname属性が必須となります。</br>
+読み込まれるとjsが各入力フォームに入力を行う度にform、名前別にデータを記録していきます。</br>
+開発者ツールのResourcesからLcal Storageを選択することで保存状況を確認出来ます。</br>
+入力フォームによっては複数のフォームを使用している場合がありますが、nvform.jsは
+form別にデータを保存しているため、一緒に送信されることはありません。</br>
+送信を行うと送信した側のデータをブラウザからも削除し、空になります。</br>
+送信されていないデータに関してはそのままになっています。</br>
+現状データはsubimitが押された際にデータを削除しますが、</br>
+他の動作で削除されることはありませんので、永久にデータが保存されます。</br>
+</p>
+</body>
+</html>
